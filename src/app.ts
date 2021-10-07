@@ -49,22 +49,35 @@ const addUID = <T extends {name: string}>(obj: T) => { // the <T> captures whate
 let docOne = addUID({name: 'duane', age: 40})
 console.log(docOne)
 
+// enums
+
+enum ResourceType { BOOK, AUTHOR, FILM, DIRECTOR, PERSON}
+
 interface Resource<T> { // reminder: interfaces define how objects should look
     uuid: number;
-    resourceName: string;
+    resourceName: ResourceType;
     data: T
 }
 
 const docThree: Resource<string> = {
     uuid: 3,
-    resourceName: 'duane',
+    resourceName: ResourceType.AUTHOR,
     data: 'john'
 }
 
 const docFour: Resource<string[]> = {
     uuid: 5,
-    resourceName: 'gianna',
+    resourceName: ResourceType.FILM,
     data: ['test']
 }
 
-const greeting = (name: string) => `hi, i'm ${name}`
+// tuples: similar to array but position of each element is fixed when initialized
+
+const arr = ['string', 25, true]
+
+let tup: [string, number, boolean] = ['duane', 40, false]
+
+
+
+
+

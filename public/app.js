@@ -28,14 +28,25 @@ const addUID = (obj) => {
 };
 let docOne = addUID({ name: 'duane', age: 40 });
 console.log(docOne);
+// enums
+var ResourceType;
+(function (ResourceType) {
+    ResourceType[ResourceType["BOOK"] = 0] = "BOOK";
+    ResourceType[ResourceType["AUTHOR"] = 1] = "AUTHOR";
+    ResourceType[ResourceType["FILM"] = 2] = "FILM";
+    ResourceType[ResourceType["DIRECTOR"] = 3] = "DIRECTOR";
+    ResourceType[ResourceType["PERSON"] = 4] = "PERSON";
+})(ResourceType || (ResourceType = {}));
 const docThree = {
     uuid: 3,
-    resourceName: 'duane',
+    resourceName: ResourceType.AUTHOR,
     data: 'john'
 };
 const docFour = {
     uuid: 5,
-    resourceName: 'gianna',
+    resourceName: ResourceType.FILM,
     data: ['test']
 };
-const greeting = (name) => `hi, i'm ${name}`;
+// tuples: similar to array but position of each element is fixed when initialized
+const arr = ['string', 25, true];
+let tup = ['duane', 40, false];
